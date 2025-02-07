@@ -91,7 +91,7 @@ I've assumed a uniform distribution -- every number between 0 and 1,000 is equal
 
 ## Conclusions
 
-**breadbasket**, if they place once a day, should expect to win once every _42.2_ years! Unless the game dev is generous and uses some weird distribution to make players luckier. We have to compensate for Zach and Danny's elevated skill too -- let's say they're 100 times better than this simulation. See you all in 4.2 years!
+**breadbasket**, if they play once a day, should expect to win once every _42.2_ years! Unless the game dev is generous and uses some weird distribution to make players luckier. We have to compensate for Zach and Danny's elevated skill too -- let's say they're 100 times better than this simulation. See you all in 4.2 years!
 
 ## Feedback
 
