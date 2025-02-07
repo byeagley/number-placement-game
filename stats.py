@@ -46,6 +46,7 @@ def main():
     fig.show()
     print(f"Expected turns: {expected_turns}")
     print(f"Win rate: {win_rate}")
+    fig.write_image("histogram.svg")
 
     return
 

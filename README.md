@@ -1,1 +1,1 @@
-![Results](histogram.png)
+![Results](histogram.svg)
