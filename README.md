@@ -2,7 +2,7 @@
 
 ## Background
 
-![Game screenshot](number-placement-screenshot.png)
+![Game screenshot](assets/number-placement-screenshot.png)
 
 This project implements a simulation of the game played by instagram account [@breadbasket303](https://www.instagram.com/breadbasket303) (seen above).
 
@@ -60,31 +60,31 @@ I've assumed a uniform distribution -- every number between 0 and 1,000 is equal
 
 ### Expected win rate plot
 
-![Expected win rate](expected_win_rate-1000000.svg)
+![Expected win rate](assets/expected_win_rate-1000000.svg)
 
 ### Turn histograms
 
 <details>
 <summary>Histograms</summary>
 
-![20 turn game](histograms/histogram-20.svg)
-![19 turn game](histograms/histogram-19.svg)
-![18 turn game](histograms/histogram-18.svg)
-![17 turn game](histograms/histogram-17.svg)
-![16 turn game](histograms/histogram-16.svg)
-![15 turn game](histograms/histogram-15.svg)
-![14 turn game](histograms/histogram-14.svg)
-![13 turn game](histograms/histogram-13.svg)
-![12 turn game](histograms/histogram-12.svg)
-![11 turn game](histograms/histogram-11.svg)
-![10 turn game](histograms/histogram-10.svg)
-![9 turn game](histograms/histogram-9.svg)
-![8 turn game](histograms/histogram-8.svg)
-![7 turn game](histograms/histogram-7.svg)
-![6 turn game](histograms/histogram-6.svg)
-![5 turn game](histograms/histogram-5.svg)
-![4 turn game](histograms/histogram-4.svg)
-![3 turn game](histograms/histogram-3.svg)
-![2 turn game](histograms/histogram-2.svg)
+![20 turn game](assets/histograms/histogram-20.svg)
+![19 turn game](assets/histograms/histogram-19.svg)
+![18 turn game](assets/histograms/histogram-18.svg)
+![17 turn game](assets/histograms/histogram-17.svg)
+![16 turn game](assets/histograms/histogram-16.svg)
+![15 turn game](assets/histograms/histogram-15.svg)
+![14 turn game](assets/histograms/histogram-14.svg)
+![13 turn game](assets/histograms/histogram-13.svg)
+![12 turn game](assets/histograms/histogram-12.svg)
+![11 turn game](assets/histograms/histogram-11.svg)
+![10 turn game](assets/histograms/histogram-10.svg)
+![9 turn game](assets/histograms/histogram-9.svg)
+![8 turn game](assets/histograms/histogram-8.svg)
+![7 turn game](assets/histograms/histogram-7.svg)
+![6 turn game](assets/histograms/histogram-6.svg)
+![5 turn game](assets/histograms/histogram-5.svg)
+![4 turn game](assets/histograms/histogram-4.svg)
+![3 turn game](assets/histograms/histogram-3.svg)
+![2 turn game](assets/histograms/histogram-2.svg)
 
 </details>
