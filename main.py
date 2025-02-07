@@ -17,7 +17,7 @@ import logging
 import math
 import random
 
-GAME_TURNS = 6
+GAME_TURNS = 20
 NUMBER_RANGE = (0, 1000)
 MAX_GAMES = 1_000_000
 
@@ -41,6 +41,19 @@ class GameStats:
     turns: int
     completed_turns: int
     final_board: list[int | None]
+
+
+def user_input(
+    x: int, game_board: list[int | None], number_range: tuple[int, int]
+) -> int:
+    print(f"Number: {x}")
+    print(f"Game board: {game_board}")
+    chosen_index = int(
+        input(
+            "Please choose the index for the new number (-1 if no available choice):\n"
+        )
+    )
+    return chosen_index
 
 
 def ideal_spacing(
