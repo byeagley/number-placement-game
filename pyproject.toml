@@ -13,4 +13,5 @@ dependencies = [
 [tool.uv]
 dev-dependencies = [
     "ruff>=0.9.5",
+    "snakeviz>=2.2.2",
 ]

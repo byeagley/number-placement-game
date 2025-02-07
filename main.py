@@ -12,21 +12,22 @@ You lose if you have no more valid slots to place the random number.
 """
 
 from dataclasses import asdict, dataclass
+from pathlib import Path
 from typing import Callable
 import logging
 import math
 import random
 
-GAME_TURNS = 20
+MAX_TURNS = 21
 NUMBER_RANGE = (0, 1000)
-MAX_GAMES = 1_000_000
+SIMULATIONS = 1_000_000
 
 logger = logging.getLogger(__name__)
 
 
 @dataclass
 class GameStats:
-    """Store relevant game stats.
+    """Store relevant game statistics.
 
     Parameters
     ----------
@@ -86,18 +87,20 @@ def ideal_spacing(
 
         if ideal_placement in previous_placement_attempts:
             msg = f"Can't place {x}: no space between previous placements"
-            logger.info(msg=msg)
+            logger.debug(msg=msg)
             return -1
 
         previous_placement_attempts.add(ideal_placement)
         ideal_placement += 1 if x > game_board[ideal_placement] else -1
 
     msg = f"Can't place {x}: no longer within bounds"
-    logger.info(msg=msg)
+    logger.debug(msg=msg)
     return -1
 
 
-def play_game(
+def play(
+    number_range: tuple[int, int],
+    turns: int,
     placement_strategy: Callable[[int, list[int | None], tuple[int, int]], int],
 ) -> GameStats:
     """Play the number placement game.
@@ -118,39 +121,42 @@ def play_game(
         the final stats for the game
     """
     generated_numbers = set()
-    game_board: list[int | None] = [None] * GAME_TURNS
+    game_board: list[int | None] = [None] * turns
 
-    for step in range(GAME_TURNS):
-        random_number = random.randint(NUMBER_RANGE[0], NUMBER_RANGE[1] - 1)
+    for turn in range(turns):
+        random_number = random.randint(number_range[0], number_range[1] - 1)
 
         # Ensure the randomly generated number is unique
         while random_number in generated_numbers:
-            random_number = random.randint(*NUMBER_RANGE)
+            random_number = random.randint(*number_range)
 
         generated_numbers.add(random_number)
+        placement_index = placement_strategy(random_number, game_board, number_range)
 
-        placement_index = placement_strategy(random_number, game_board, NUMBER_RANGE)
-        if not 0 <= placement_index < GAME_TURNS:
-            if step == 0:
-                print("strange")
-            return GameStats(
-                turns=GAME_TURNS, completed_turns=step, final_board=game_board
-            )
+        if not 0 <= placement_index < turns:
+            return GameStats(turns=turns, completed_turns=turn, final_board=game_board)
 
         game_board[placement_index] = random_number
 
-    return GameStats(turns=GAME_TURNS, completed_turns=step + 1, final_board=game_board)
+    return GameStats(turns=turns, completed_turns=turn + 1, final_board=game_board)
 
 
 def main():
-    logging.basicConfig(
-        filename="main.log", level=logging.CRITICAL, format="%(message)s"
-    )
+    for i in range(2, MAX_TURNS):
+        logging.basicConfig(
+            filename=Path(f"game-{i}.log"),
+            level=logging.INFO,
+            format="%(message)s",
+            filemode="w",
+            force=True,
+        )
 
-    for game in range(MAX_GAMES):
-        logger.info(f"Starting game #{game}")
-        game_stats = play_game(placement_strategy=ideal_spacing)
-        logger.critical(asdict(game_stats))
+        for game in range(SIMULATIONS):
+            logger.debug(f"Starting game #{game}")
+            game_stats = play(
+                turns=i, number_range=NUMBER_RANGE, placement_strategy=ideal_spacing
+            )
+            logger.info(asdict(game_stats))
 
 
 if __name__ == "__main__":
