@@ -88,3 +88,11 @@ I've assumed a uniform distribution -- every number between 0 and 1,000 is equal
 ![2 turn game](assets/histograms/histogram-2.svg)
 
 </details>
+
+## Conclusions
+
+**breadbasket**, if they place once a day, should expect to win once every _42.2_ years! Unless the game dev is generous and uses some weird distribution to make players luckier. We have to compensate for Zach and Danny's elevated skill too -- let's say they're 100 times better than this simulation. See you all in 4.2 years!
+
+## Feedback
+
+Create an issue if you have any thoughts or feedback! I'd be curious to know if there is a better strategy to this game, but I'd cautiously call these results the best case scenario.
